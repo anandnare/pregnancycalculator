@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pregnancy Calculator</h1>
+        <form id="pregnancyForm">
+            <label for="date">Date of Last Menstrual Period:</label>
+            <div class="input-group">
+                <select id="date" name="date" required>
+                    <option value="" disabled selected>Date</option>
+                    <!-- Loop for dates -->
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+
+                <select id="month" name="month" required>
+                    <option value="" disabled selected>Month</option>
+                    <!-- Loop for months -->
+                    <script>
+                        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        for (let i = 1; i <= 12; i++) {
+                            document.write(`<option value="${i}">${months[i-1]}</option>`);
+                        }
+                    </script>
+                </select>
+
+                <input type="number" id="year" name="year" placeholder="Year (Ex: 2022)" required>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="calculateDueDate()">Calculate</button>
+                <button type="reset">Reset</button>
+            </div>
+
+            <p id="result"></p>
+        </form>
+
+        <!-- Author credit -->
+        <p class="author">This calculator is made by Anand Nare</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
